@@ -33,7 +33,7 @@ module PuppetX::Oracle::SolarisProviders::Util::Svcs
     if value == "absent" || value == :absent
       %q(\'\')
     elsif value.kind_of?(Array)
-      value.map{ |val| svcs_escape(val) }
+      value.map{ |val| "\"#{svcs_escape(val)}\"" }
     else
       svcs_escape(value)
     end
